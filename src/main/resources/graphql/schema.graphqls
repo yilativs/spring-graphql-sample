@@ -1,3 +1,5 @@
+scalar Date
+
 type Query {
     bookById(id: ID): Book
     books(sortAsc: Boolean!): [Book]
@@ -8,10 +10,16 @@ type Book {
     name: String
     pageCount: Int
     author: Author
+    reviews: [Review]
 }
 
 type Author {
     id: ID
     firstName: String
     lastName: String
+}
+type Review {
+    id: Int
+    text: String
+    date: Date
 }
